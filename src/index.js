@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 // import mongoose from "mongoose";
 // import {DB_NAME} from "./constants"
-
+import { app } from './app.js';
 
 import connectDB from "./db/index.js";
 
@@ -18,5 +18,5 @@ connectDB()
     })
 })
 .catch((err)=>{
-    console.log("mongo db connect failed",err)
+    console.log("mongo db connection failed",err)
 })
