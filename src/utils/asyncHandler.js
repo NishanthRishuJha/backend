@@ -1,15 +1,26 @@
 //promises technique
-const asyncHandler=(requestHandler) => {
-    return (req, res, next)=>{
-        Promise.resolve(requestHandler(req, res, next)).catch((err)=>next)
-    }
-}
+// const asyncHandler=(requestHandler) => {
+//     return (req, res, next)=>{
+//         Promise.resolve(requestHandler(req, res, next)).catch((err)=>next)
+//     }
+// }
 
 
 
 
 
-export{asyncHandler}
+// export{asyncHandler}
+
+export const asyncHandler = (fn) => (req,res,next) => {
+  Promise
+    .resolve(fn(req,res,next))
+    .catch(next);
+};
+
+
+
+
+
 
 
 //try catch method
